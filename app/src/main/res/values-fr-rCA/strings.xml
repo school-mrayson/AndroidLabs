@@ -2,4 +2,11 @@
 <resources>
     <string name="hello_message">Bonjour!</string>
     <string name="button_text">Je suis un bouton</string>
+    <string name="textview_message">Regarde mon GUI</string>
+    <string name="check_message">Regarde ca</string>
+    <string name="check_button_message">Appuyer ici</string>
+    <string name="switch_text">Interrupteur ouvert/fermer</string>
+    <string name="enter_name_hint">Ecrivez ici</string>
+    <string name="toast_message">Voici plus d\'informations</string>
+    <string name="app_name">Android Labs</string>
 </resources>

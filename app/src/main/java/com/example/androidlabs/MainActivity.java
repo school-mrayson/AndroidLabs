@@ -3,11 +3,8 @@ package com.example.androidlabs;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -25,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         Switch switchA = findViewById(R.id.switch1);
 
         button1.setOnClickListener(btn -> Toast.makeText(this, "Here is more information", Toast.LENGTH_LONG).show());
+
         check.setOnCheckedChangeListener( (box, isChecked) -> {
             if (box.isChecked()){
                 Snackbar.make(check, "Switch is now on", Snackbar.LENGTH_LONG).setAction("Undo", v -> check.setChecked(false)).show();
@@ -32,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(check, "Switch is now off", Snackbar.LENGTH_LONG).show();
             }
         });
+
         switchA.setOnCheckedChangeListener( (s, isChecked) -> {
             if (s.isChecked()){
                 Snackbar.make(switchA, "Switch is now on", Snackbar.LENGTH_LONG).setAction("Undo", v -> switchA.setChecked(false)).show();
