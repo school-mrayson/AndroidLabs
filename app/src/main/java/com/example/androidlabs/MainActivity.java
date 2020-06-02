@@ -21,21 +21,21 @@ public class MainActivity extends AppCompatActivity {
         CheckBox check = findViewById(R.id.checkBox2);
         Switch switchA = findViewById(R.id.switch1);
 
-        button1.setOnClickListener(btn -> Toast.makeText(this, "Here is more information", Toast.LENGTH_LONG).show());
+        button1.setOnClickListener(btn -> Toast.makeText(this, this.getString(R.string.toast_message), Toast.LENGTH_LONG).show());
 
         check.setOnCheckedChangeListener( (box, isChecked) -> {
             if (box.isChecked()){
-                Snackbar.make(check, "Switch is now on", Snackbar.LENGTH_LONG).setAction("Undo", v -> check.setChecked(false)).show();
+                Snackbar.make(check, this.getString(R.string.switch_on), Snackbar.LENGTH_LONG).setAction(this.getString(R.string.Undo), v -> check.setChecked(false)).show();
             }else{
-                Snackbar.make(check, "Switch is now off", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(check, this.getString(R.string.switch_off), Snackbar.LENGTH_LONG).show();
             }
         });
 
         switchA.setOnCheckedChangeListener( (s, isChecked) -> {
             if (s.isChecked()){
-                Snackbar.make(switchA, "Switch is now on", Snackbar.LENGTH_LONG).setAction("Undo", v -> switchA.setChecked(false)).show();
+                Snackbar.make(switchA, this.getString(R.string.switch_on), Snackbar.LENGTH_LONG).setAction(this.getString(R.string.Undo), v -> switchA.setChecked(false)).show();
             }else{
-                Snackbar.make(switchA, "Switch is now off", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(switchA, this.getString(R.string.switch_off), Snackbar.LENGTH_LONG).show();
             }
         });
     }

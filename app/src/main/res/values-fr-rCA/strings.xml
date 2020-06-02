@@ -9,4 +9,7 @@
     <string name="enter_name_hint">Ecrivez ici</string>
     <string name="toast_message">Voici plus d\'informations</string>
     <string name="app_name">Android Labs</string>
+    <string name="switch_on">Interrupteur est maintenant ouvert</string>
+    <string name="switch_off">Interrupteur est maintenant fermer</string>
+    <string name="Undo">Annuler</string>
 </resources>
