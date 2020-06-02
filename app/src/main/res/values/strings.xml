@@ -7,5 +7,8 @@
     <string name="check_button_message">Click here</string>
     <string name="switch_text">Switch on / off</string>
     <string name="enter_name_hint">Type here</string>
+    <string name="switch_on">Switch is now on</string>
+    <string name="switch_off">Switch is now off</string>
+    <string name="Undo">Undo</string>
     <string name="toast_message">Here is more information</string>
 </resources>
