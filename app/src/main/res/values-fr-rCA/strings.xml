@@ -12,4 +12,7 @@
     <string name="switch_on">Interrupteur est maintenant ouvert</string>
     <string name="switch_off">Interrupteur est maintenant fermer</string>
     <string name="Undo">Annuler</string>
+    <string name="passwordText">Type your password</string>
+    <string name="emailHint">johnDoe@gmail.com</string>
+    <string name="passwordHint">Password</string>
 </resources>

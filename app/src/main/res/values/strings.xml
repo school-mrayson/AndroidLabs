@@ -11,4 +11,9 @@
     <string name="switch_off">Switch is now off</string>
     <string name="Undo">Undo</string>
     <string name="toast_message">Here is more information</string>
+    <string name="emailText">Enter your email address</string>
+    <string name="passwordText">Type your password</string>
+    <string name="emailHint">johnDoe@gmail.com</string>
+    <string name="passwordHint">Password</string>
+    <string name="loginButton">Login</string>
 </resources>
