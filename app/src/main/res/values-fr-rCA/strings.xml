@@ -16,7 +16,7 @@
     <string name="emailHint">Ecriver votre couriel</string>
     <string name="passwordHint">Password</string>
     <string name="emailText">Ecriver votre couriel</string>
-    <string name="loginButton">Login</string>
+    <string name="loginButton">Connecter</string>
     <string name="profileWelcome">Votre Profil</string>
     <string name="profileName">Votre nom</string>
     <string name="profileNameET">Ecriver votre nom</string>
