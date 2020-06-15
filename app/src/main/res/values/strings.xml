@@ -16,4 +16,10 @@
     <string name="emailHint">johnDoe@gmail.com</string>
     <string name="passwordHint">Password</string>
     <string name="loginButton">Login</string>
+    <string name="profileWelcome">Your Profile</string>
+    <string name="profileName">Your Name:</string>
+    <string name="profileNameET">Enter your name</string>
+    <string name="profileEmail">Your Email:</string>
+    <string name="profileImageTV">Your Image:</string>
+    <string name="imageHint">Click the button above to take a picture</string>
 </resources>
