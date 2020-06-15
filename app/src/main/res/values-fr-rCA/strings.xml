@@ -12,7 +12,15 @@
     <string name="switch_on">Interrupteur est maintenant ouvert</string>
     <string name="switch_off">Interrupteur est maintenant fermer</string>
     <string name="Undo">Annuler</string>
-    <string name="passwordText">Type your password</string>
-    <string name="emailHint">johnDoe@gmail.com</string>
+    <string name="passwordText">Ecriver votre mot de pass</string>
+    <string name="emailHint">Ecriver votre couriel</string>
     <string name="passwordHint">Password</string>
+    <string name="emailText">Ecriver votre couriel</string>
+    <string name="loginButton">Login</string>
+    <string name="profileWelcome">Votre Profil</string>
+    <string name="profileName">Votre nom</string>
+    <string name="profileNameET">Ecriver votre nom</string>
+    <string name="profileEmail">Votre Couriel:</string>
+    <string name="profileImageTV">Votre Image:</string>
+    <string name="imageHint">Appuyer sur le button pour prendre une photo</string>
 </resources>

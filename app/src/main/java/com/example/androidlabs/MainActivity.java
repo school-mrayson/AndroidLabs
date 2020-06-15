@@ -16,16 +16,20 @@ import android.widget.Toast;
 import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
-    private SharedPreferences sp = getPreferences(Context.MODE_PRIVATE);
-    private SharedPreferences.Editor spEditor = sp.edit();
-    private EditText emailET = findViewById(R.id.emailET);
-    private EditText passET = findViewById(R.id.passwordET);
-    private Button login = findViewById(R.id.loginBtn);
+    private SharedPreferences sp;
+    private SharedPreferences.Editor spEditor;
+    private EditText emailET;
+    private Button login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_linear);
+
+        sp = getPreferences(Context.MODE_PRIVATE);
+        spEditor = sp.edit();
+        emailET = findViewById(R.id.emailET);
+        login = findViewById(R.id.loginBtn);
 
         //load email from sp and send to email et
         emailET.setText(sp.getString("userEmail", ""));
@@ -33,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(btn -> {
             Intent goToProfile = new Intent(MainActivity.this, ProfileActivity.class);
             goToProfile.putExtra("Email",emailET.getText().toString());
+            startActivity(goToProfile);
         });
 
     }

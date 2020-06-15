@@ -12,26 +12,34 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 public class ProfileActivity extends AppCompatActivity {
-    private ImageButton profilePicBtn = findViewById(R.id.profileImageBtn);
-    private EditText emailET = findViewById(R.id.emailET2);
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static final String ACTIVITY_NAME = "PROFILE_ACTIVITY";
-
-    private void dispatchTakePictureIntent(){
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager())!= null){
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-        }
-    }
+    private ImageButton profilePicBtn;
+    private EditText emailET;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         Intent fromMain = getIntent();
+
+        emailET = findViewById(R.id.emailET2);
+        profilePicBtn = findViewById(R.id.profileImageBtn);
+
         emailET.setText(fromMain.getStringExtra("Email"));
 
+        profilePicBtn.setOnClickListener(btn -> {
+            dispatchTakePictureIntent();
+        });
+
         Log.e(ACTIVITY_NAME, "In function:" + " onCreate");
+    }
+
+    private void dispatchTakePictureIntent(){
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager())!= null){
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
     }
 
     @Override
