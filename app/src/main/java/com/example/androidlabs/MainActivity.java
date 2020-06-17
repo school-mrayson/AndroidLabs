@@ -25,14 +25,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_linear);
-
-        sp = getPreferences(Context.MODE_PRIVATE);
-        spEditor = sp.edit();
         emailET = findViewById(R.id.emailET);
         login = findViewById(R.id.loginBtn);
-
-        //load email from sp and send to email et
-        emailET.setText(sp.getString("userEmail", ""));
+        sp = getPreferences(Context.MODE_PRIVATE);
+        spEditor = sp.edit();
 
         login.setOnClickListener(btn -> {
             Intent goToProfile = new Intent(MainActivity.this, ProfileActivity.class);
@@ -46,5 +42,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         spEditor.putString("userEmail", emailET.getText().toString());
+        spEditor.commit();
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        emailET.setText(sp.getString("userEmail",""));
     }
 }
