@@ -22,4 +22,8 @@
     <string name="profileEmail">Your Email:</string>
     <string name="profileImageTV">Your Image:</string>
     <string name="imageHint">Click the button above to take a picture</string>
+    <string name="chatButton">Go to Chat</string>
+    <string name="sendButton">Send</string>
+    <string name="textHint">Type here</string>
+    <string name="recieveButton">Recieve</string>
 </resources>
