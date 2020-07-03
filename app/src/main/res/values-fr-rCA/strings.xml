@@ -23,4 +23,7 @@
     <string name="profileEmail">Votre Couriel:</string>
     <string name="profileImageTV">Votre Image:</string>
     <string name="imageHint">Appuyer sur le button pour prendre une photo</string>
+    <string name="chatButton">Chat</string>
+    <string name="sendButton">Envoyer</string>
+    <string name="recieveButton">Recevoir</string>
 </resources>
