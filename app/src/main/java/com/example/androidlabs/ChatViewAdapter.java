@@ -32,7 +32,7 @@ public class ChatViewAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return (long)position;
+        return messages.get(position).getId();
     }
 
     @Override
