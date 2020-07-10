@@ -12,34 +12,27 @@ public class MyOpener extends SQLiteOpenHelper {
     public final static String COL_SENT = "SENT";
     public final static String COL_ID = "_id";
 
-    public MyOpener(Context ctx)
+    public MyOpener(Context c)
     {
-        super(ctx, DATABASE_NAME, null, VERSION_NUM);
+        super(c, DATABASE_NAME, null, VERSION_NUM);
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db)
-    {
+    public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + TABLE_NAME + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + COL_TEXT + " text,"
-                + COL_SENT  + " int);");  // add or remove columns
+                + COL_SENT  + " int);");
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
-    {   //Drop the old table:
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL( "DROP TABLE IF EXISTS " + TABLE_NAME);
-
-        //Create the new table:
         onCreate(db);
     }
 
     @Override
-    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion)
-    {   //Drop the old table:
+    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion){
         db.execSQL( "DROP TABLE IF EXISTS " + TABLE_NAME);
-
-        //Create the new table:
         onCreate(db);
     }
 

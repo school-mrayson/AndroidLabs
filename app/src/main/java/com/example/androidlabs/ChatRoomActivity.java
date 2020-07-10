@@ -45,13 +45,8 @@ public class ChatRoomActivity extends AppCompatActivity {
         chatWindow.setAdapter(adapter);
 
         sendBtn.setOnClickListener(btn -> {
-            //get the information typed
             String mes = messageET.getText().toString();
-
-            //add to the database
             ContentValues newRowValues = new ContentValues();
-
-            //now provide a value for every database column defined in myOpener
             newRowValues.put(MyOpener.COL_TEXT, mes);
             newRowValues.put(MyOpener.COL_SENT, 1);
 
@@ -65,13 +60,8 @@ public class ChatRoomActivity extends AppCompatActivity {
         });
 
         receiveBtn.setOnClickListener(btn -> {
-            //get the information typed
             String mes = messageET.getText().toString();
-
-            //add to the database
             ContentValues newRowValues = new ContentValues();
-
-            //now provide a value for every database column defined in myOpener
             newRowValues.put(MyOpener.COL_TEXT, mes);
             newRowValues.put(MyOpener.COL_SENT, 0);
 
@@ -119,8 +109,6 @@ public class ChatRoomActivity extends AppCompatActivity {
             String text = results.getString(textColumnIndex);
             Boolean sent = (results.getInt(sentColumnIndex) == 1)? true:false;
             long id = results.getLong(idColumnIndex);
-
-            //add the new Contact to the array list:
             messages.add(new Message(text, sent, id));
         }
         results.moveToPosition(-1);
