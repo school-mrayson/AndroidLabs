@@ -116,22 +116,22 @@ public class ChatRoomActivity extends AppCompatActivity {
     }
 
     private void printCursor(Cursor c, int version){
-        Log.e(ACTIVITY_NAME, "Database Version: " + version);
-        Log.e(ACTIVITY_NAME, "Number of columns in the cursor: " + c.getColumnCount());
+        Log.i(ACTIVITY_NAME, "Database Version: " + version);
+        Log.i(ACTIVITY_NAME, "Number of columns in the cursor: " + c.getColumnCount());
         String names = "";
         String[] colNames = c.getColumnNames();
         for (String name: colNames){
             names = names + (name + " | ");
         }
-        Log.e(ACTIVITY_NAME, "Names of the columns: " + names);
-        Log.e(ACTIVITY_NAME, "Number of rows in the cursor: " + c.getCount());
-        Log.e(ACTIVITY_NAME, "Results: ");
+        Log.i(ACTIVITY_NAME, "Names of the columns: " + names);
+        Log.i(ACTIVITY_NAME, "Number of rows in the cursor: " + c.getCount());
+        Log.i(ACTIVITY_NAME, "Results: ");
         while (c.moveToNext()) {
             String result = "|";
             for (int col = 0; col < c.getColumnCount(); col++) {
                 result += " " + c.getString(col) + " | ";
             }
-            Log.e(ACTIVITY_NAME, result);
+            Log.i(ACTIVITY_NAME, result);
         }
         c.moveToPosition(-1);
     }
