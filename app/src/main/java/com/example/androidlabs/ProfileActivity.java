@@ -16,6 +16,7 @@ public class ProfileActivity extends AppCompatActivity {
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static final String ACTIVITY_NAME = "PROFILE_ACTIVITY";
     private ImageButton profilePicBtn;
+    private Button weatherForecast;
     private EditText emailET;
     private Button chat;
 
@@ -28,6 +29,7 @@ public class ProfileActivity extends AppCompatActivity {
         emailET = findViewById(R.id.emailET2);
         profilePicBtn = findViewById(R.id.profileImageBtn);
         chat = findViewById(R.id.chatButton);
+        weatherForecast = findViewById(R.id.weatherButton);
 
         emailET.setText(fromMain.getStringExtra("Email"));
 
@@ -38,6 +40,11 @@ public class ProfileActivity extends AppCompatActivity {
         chat.setOnClickListener(btn -> {
             Intent goToChatRoom = new Intent(this, ChatRoomActivity.class);
             startActivity(goToChatRoom);
+        });
+
+        weatherForecast.setOnClickListener(btn -> {
+            Intent goToForecast = new Intent(ProfileActivity.this, WeatherForecast.class);
+            startActivity(goToForecast);
         });
         Log.e(ACTIVITY_NAME, "In function:" + " onCreate");
     }
