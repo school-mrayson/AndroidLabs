@@ -56,6 +56,7 @@ public class WeatherForecast extends AppCompatActivity {
 
     private class ForecastQuery extends AsyncTask<String, Integer, String[]>{
         private String uv;
+        private String icon;
         private String sminTemp;
         private String smaxTemp;
         private String scurrTemp;
@@ -84,28 +85,19 @@ public class WeatherForecast extends AppCompatActivity {
                         if(xpp.getName().equals("temperature")) {
                             scurrTemp = xpp.getAttributeValue(null, "value");
                             Log.e("WeatherForecast",scurrTemp);
-                            pb.setProgress(25, true);
+                            publishProgress(25);
                             sminTemp = xpp.getAttributeValue(null, "min");
                             Log.e("WeatherForecast",sminTemp);
-                            pb.setProgress(50, true);
+                            publishProgress(50);
                             smaxTemp = xpp.getAttributeValue(null, "max");
                             Log.e("WeatherForecast",smaxTemp);
-                            pb.setProgress(75, true);
+                            publishProgress(75);
                         }
                         if(xpp.getName().equals("weather")){
-                            String icon = xpp.getAttributeValue(null, "icon");
+                            icon = xpp.getAttributeValue(null, "icon");
                             Log.i("WeatherForecast","Looking for file: " + icon + ".png");
                             if (fileExists(icon+".png")){
                                 Log.i("WeatherForecast","File: " + icon + ".png was found locally");
-                                FileInputStream fis = null;
-                                try{
-                                    fis = openFileInput(icon+".png");
-                                    currentWeatherPic = BitmapFactory.decodeStream(fis);
-                                    pb.setProgress(100, true);
-                                    currWeather.setImageBitmap(currentWeatherPic);
-                                } catch (FileNotFoundException e){
-                                    e.printStackTrace();
-                                }
                             } else{
                                 Log.i("WeatherForecast","File: " + icon + ".png was found externally");
                                 URL urlImage = new URL("http://openweathermap.org/img/w/"+icon+".png");
@@ -119,8 +111,8 @@ public class WeatherForecast extends AppCompatActivity {
                                     outputStream.flush();
                                     outputStream.close();
                                 }
-                                pb.setProgress(100, true);
                             }
+                            publishProgress(100);
                         }
                     }
                     eventType = xpp.next(); //move to the next xml event and store it in a variable
@@ -135,7 +127,6 @@ public class WeatherForecast extends AppCompatActivity {
                     sb.append(line + "\n");
                 }
                 String result = sb.toString();
-                Log.e("WeatherForecast", result);
                 JSONObject uvReport = new JSONObject(result);
                 uv = Double.toString(uvReport.getDouble("value"));
 
@@ -143,13 +134,25 @@ public class WeatherForecast extends AppCompatActivity {
                 Log.e("WeatherForcast", e.getMessage());
             }
 
-            return new String[]{scurrTemp, sminTemp, smaxTemp, uv};
+            return new String[]{scurrTemp, sminTemp, smaxTemp, uv, icon};
+        }
+        public void onProgressUpdate(Integer ... args){
+            pb.setProgress(args[0], true);
         }
         public void onPostExecute(String[] fromDoInBackground){
             currTemp.setText("Current Temp:" + fromDoInBackground[0]);
             minTemp.setText("Minimum Temp: " + fromDoInBackground[1]);
             maxTemp.setText("Maximum Temp: " + fromDoInBackground[2]);
             uvRating.setText("UV Rating: " + fromDoInBackground[3]);
+            FileInputStream fis;
+            String icon = fromDoInBackground[4];
+            try{
+                fis = openFileInput(icon+".png");
+                currentWeatherPic = BitmapFactory.decodeStream(fis);
+                currWeather.setImageBitmap(currentWeatherPic);
+            } catch (FileNotFoundException e){
+                Log.e("WeatherForecast", e.getMessage());
+            }
             pb.setVisibility(View.INVISIBLE);
 
         }
