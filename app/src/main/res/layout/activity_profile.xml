@@ -48,6 +48,12 @@
         android:layout_height="wrap_content"
         android:text="@string/profileImageTV" />
 
+    <Button
+        android:id="@+id/weatherButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/launchWeatherApp" />
+
     <ImageButton
         android:id="@+id/profileImageBtn"
         android:layout_width="match_parent"
@@ -66,11 +72,6 @@
         android:layout_height="wrap_content"
         android:text="@string/chatButton" />
 
-    <Button
-        android:id="@+id/weatherButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
 
 
 </LinearLayout>

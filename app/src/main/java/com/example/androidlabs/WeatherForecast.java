@@ -50,8 +50,8 @@ public class WeatherForecast extends AppCompatActivity {
 
         pb.setVisibility(View.VISIBLE);
         ForecastQuery newFQ = new ForecastQuery();
-        newFQ.execute("http://api.openweathermap.org/data/2.5/weather?q=ottawa,ca&APPID=7e943c97096a9784391a981c4d878b22&mode=xml&units=metric",
-                "http://api.openweathermap.org/data/2.5/uvi?appid=7e943c97096a9784391a981c4d878b22&lat=45.348945&lon=-75.759389");
+        newFQ.execute("https://api.openweathermap.org/data/2.5/weather?q=ottawa,ca&APPID=7e943c97096a9784391a981c4d878b22&mode=xml&units=metric",
+                "https://api.openweathermap.org/data/2.5/uvi?appid=7e943c97096a9784391a981c4d878b22&lat=45.348945&lon=-75.759389");
     }
 
     private class ForecastQuery extends AsyncTask<String, Integer, String[]>{
@@ -100,7 +100,7 @@ public class WeatherForecast extends AppCompatActivity {
                                 Log.i("WeatherForecast","File: " + icon + ".png was found locally");
                             } else{
                                 Log.i("WeatherForecast","File: " + icon + ".png was found externally");
-                                URL urlImage = new URL("http://openweathermap.org/img/w/"+icon+".png");
+                                URL urlImage = new URL("https://openweathermap.org/img/w/"+icon+".png");
                                 urlConnection = (HttpURLConnection) urlImage.openConnection();
                                 urlConnection.connect();
                                 int responseCode = urlConnection.getResponseCode();
