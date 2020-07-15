@@ -25,4 +25,5 @@
     <string name="chatButton">Go to Chat</string>
     <string name="sendButton">Send</string>
     <string name="recieveButton">Recieve</string>
+    <string name="launchWeatherApp">Weather Forecast</string>
 </resources>
