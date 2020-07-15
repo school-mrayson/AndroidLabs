@@ -5,6 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_marginTop="27dp"
+    android:layout_marginBottom="27dp"
+    android:layout_marginLeft="48dp"
+    android:layout_marginRight="48dp"
+
     tools:context=".ProfileActivity">
 
 
@@ -26,6 +31,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
+        android:nextFocusDown="@id/emailET2"
         android:hint="@string/profileNameET" />
 
     <TextView
@@ -40,6 +46,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textEmailAddress"
+        android:nextFocusUp="@id/editTextTextPersonName2"
+        android:nextFocusDown="@id/chatButton"
         android:hint="@string/emailHint" />
 
     <TextView
@@ -64,12 +72,15 @@
         android:id="@+id/chatButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:nextFocusUp="@id/emailET2"
+        android:nextFocusDown="@id/weatherButton"
         android:text="@string/chatButton" />
 
     <Button
         android:id="@+id/weatherButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:nextFocusUp="@id/chatButton"
         android:text="@string/launchWeatherApp" />
 
 
