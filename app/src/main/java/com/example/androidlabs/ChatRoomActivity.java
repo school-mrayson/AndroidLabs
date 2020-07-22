@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.util.Log;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -27,6 +29,12 @@ public class ChatRoomActivity extends AppCompatActivity {
     private Message message;
     private ArrayList<Message> messages = new ArrayList<>();
     SQLiteDatabase db;
+    private FrameLayout fl;
+    private Boolean isPhone;
+
+    public static final String ITEM_MESSAGE = "MESSAGE";
+    public static final String ITEM_SENT = "ISSENT";
+    public static final String ITEM_ID = "ID";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +46,13 @@ public class ChatRoomActivity extends AppCompatActivity {
         sendBtn = findViewById(R.id.sendBtn);
         receiveBtn = findViewById(R.id.receiveBtn);
         messageET = findViewById(R.id.messageET);
+        fl = findViewById(R.id.fragmentLocation);
+
+        if (fl == null){
+            isPhone = true;
+        }else{
+            isPhone = false;
+        }
 
         loadFromDatabase();
 
@@ -86,6 +101,24 @@ public class ChatRoomActivity extends AppCompatActivity {
             AlertDialog alertDialog = alertDialogBuilder.create();
             alertDialog.show();
             return true;
+        });
+
+        chatWindow.setOnItemClickListener((list, item, position, id) -> {
+            Bundle dataToPass = new Bundle();
+            dataToPass.putString(ITEM_MESSAGE, messages.get(position).toString());
+            dataToPass.putBoolean(ITEM_SENT, messages.get(position).isSent);
+            dataToPass.putLong(ITEM_ID, id);
+
+            if(!isPhone){
+                DetailsFragment dFragment = new DetailsFragment();
+                dFragment.setArguments(dataToPass);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentLocation, dFragment).commit();
+            }
+            else{
+                Intent nextActivity = new Intent(this, DetailsPhone.class);
+                nextActivity.putExtras(dataToPass);
+                startActivity(nextActivity);
+            }
         });
     }
 

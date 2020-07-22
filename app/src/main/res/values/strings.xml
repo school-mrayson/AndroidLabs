@@ -26,4 +26,8 @@
     <string name="sendButton">Send</string>
     <string name="recieveButton">Recieve</string>
     <string name="launchWeatherApp">Weather Forecast</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="isSentCheckText">is a Send Message</string>
+    <string name="hideBtnText">Hide</string>
 </resources>
